@@ -1,0 +1,151 @@
+export const AbidjanExpress = {
+  imo: 9303807,
+  name: "ABIDJAN EXPRESS",
+};
+
+export const portCalls = [
+  {
+    arrival: "2019-01-12T03:42:00+00:00",
+    departure: "2019-01-12T20:48:00+00:00",
+    isOmitted: false,
+    port: { id: "BEANR", name: "Antwerpen" },
+  },
+  {
+    arrival: "2019-01-12T03:42:00+00:00",
+    departure: "2019-01-12T20:38:00+00:00",
+    isOmitted: false,
+    port: { id: "BEANR", name: "Antwerpen" },
+  },
+  {
+    arrival: "2019-01-12T01:42:00+00:00",
+    departure: "2019-01-12T17:48:00+00:00",
+    isOmitted: false,
+    port: { id: "BEANR", name: "Antwerpen" },
+  },
+  {
+    arrival: "2019-01-12T03:42:00+00:00",
+    departure: "2019-01-12T19:48:00+00:00",
+    isOmitted: false,
+    port: { id: "BEANR", name: "Antwerpen" },
+  },
+  {
+    arrival: "2019-01-12T07:42:00+00:00",
+    departure: "2019-01-12T20:48:00+00:00",
+    isOmitted: false,
+    port: { id: "BEANR", name: "Antwerpen" },
+  },
+  {
+    arrival: "2019-01-12T04:42:00+00:00",
+    departure: "2019-01-12T20:48:00+00:00",
+    isOmitted: false,
+    port: { id: "BEANR", name: "Antwerpen" },
+  },
+  {
+    arrival: "2019-01-12T17:42:00+00:00",
+    departure: "2019-01-12T23:48:00+00:00",
+    isOmitted: false,
+    port: { id: "BEANR", name: "Antwerpen" },
+  },
+  {
+    arrival: "2019-01-12T00:42:00+00:00",
+    departure: "2019-01-13T00:41:00+00:00",
+    isOmitted: false,
+    port: { id: "BEANR", name: "Antwerpen" },
+  },
+  {
+    arrival: "2019-01-12T07:42:00+00:00",
+    departure: "2019-01-12T12:48:00+00:00",
+    isOmitted: false,
+    port: { id: "BEANR", name: "Antwerpen" },
+  },
+  {
+    arrival: "2019-01-12T08:42:00+00:00",
+    departure: "2019-01-12T22:48:00+00:00",
+    isOmitted: false,
+    port: { id: "BEANR", name: "Antwerpen" },
+  },
+  {
+    arrival: "2019-01-12T05:30:00+00:00",
+    departure: "2019-01-12T19:48:00+00:00",
+    isOmitted: false,
+    port: { id: "BEANR", name: "Antwerpen" },
+  },
+  {
+    arrival: "2019-01-12T19:42:00+00:00",
+    departure: "2019-01-12T23:48:00+00:00",
+    isOmitted: false,
+    port: { id: "BEANR", name: "Antwerpen" },
+  },
+  {
+    arrival: "2019-01-12T01:42:00+00:00",
+    departure: "2019-01-12T07:48:00+00:00",
+    isOmitted: false,
+    port: { id: "BEANR", name: "Antwerpen" },
+  },
+  {
+    arrival: "2019-01-12T03:00:00+00:00",
+    departure: "2019-01-12T21:48:00+00:00",
+    isOmitted: false,
+    port: { id: "BEANR", name: "Antwerpen" },
+  },
+  {
+    arrival: "2019-01-12T05:42:00+00:00",
+    departure: "2019-01-12T23:48:00+00:00",
+    isOmitted: false,
+    port: { name: "Hamburg", id: "DEHAM" },
+  },
+  {
+    arrival: "2019-01-12T22:42:00+00:00",
+    departure: "2019-01-13T09:48:00+00:00",
+    isOmitted: false,
+    port: { name: "Hamburg", id: "DEHAM" },
+  },
+  {
+    arrival: "2019-01-12T12:42:00+00:00",
+    departure: "2019-01-12T20:48:00+00:00",
+    isOmitted: false,
+    port: { name: "Hamburg", id: "DEHAM" },
+  },
+  {
+    arrival: "2019-01-12T11:42:00+00:00",
+    departure: "2019-01-12T16:48:00+00:00",
+    isOmitted: false,
+    port: { name: "Hamburg", id: "DEHAM" },
+  },
+  {
+    arrival: "2019-01-12T03:42:00+00:00",
+    departure: "2019-01-12T21:48:00+00:00",
+    isOmitted: false,
+    port: { name: "Casablanca", id: "MACAS" },
+  },
+  {
+    arrival: "2019-01-12T05:20:00+00:00",
+    departure: "2019-01-12T16:48:00+00:00",
+    isOmitted: false,
+    port: { name: "Casablanca", id: "MACAS" },
+  },
+  {
+    arrival: "2019-01-12T01:42:00+00:00",
+    departure: "2019-01-12T17:48:00+00:00",
+    isOmitted: false,
+    port: { name: "Casablanca", id: "MACAS" },
+  },
+  {
+    arrival: "2019-01-12T09:42:00+00:00",
+    departure: "2019-01-12T22:48:00+00:00",
+    isOmitted: false,
+    port: { name: "Tanger Med", id: "MAPTM" },
+  },
+  {
+    arrival: "2019-01-12T06:42:00+00:00",
+    departure: "2019-01-12T09:48:00+00:00",
+    isOmitted: false,
+    port: { name: "Tanger Med", id: "MAPTM" },
+  },
+  {
+    arrival: "2019-01-12T04:42:00+00:00",
+    departure: "2019-01-12T18:48:00+00:00",
+    isOmitted: false,
+    port: { name: "Tema", id: "GHTEM" },
+  },
+];

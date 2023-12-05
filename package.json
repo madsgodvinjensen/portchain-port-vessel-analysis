@@ -6,5 +6,11 @@
   "repository": "git@github.com:madsgodvinjensen/portchain-port-vessel-analysis.git",
   "author": "Mads Godvin Jensen <mads@strangedelight.dk>",
   "license": "MIT",
-  "packageManager": "yarn@4.0.2"
+  "packageManager": "yarn@4.0.2",
+  "dependencies": {
+    "jest": "^29.7.0"
+  },
+  "scripts": {
+    "test": "yarn node --experimental-vm-modules $(yarn bin jest)"
+  }
 }
