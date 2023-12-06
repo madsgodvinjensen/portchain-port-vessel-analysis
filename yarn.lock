@@ -408,6 +408,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@clack/core@npm:^0.3.3":
+  version: 0.3.3
+  resolution: "@clack/core@npm:0.3.3"
+  dependencies:
+    picocolors: "npm:^1.0.0"
+    sisteransi: "npm:^1.0.5"
+  checksum: e26e5a78d081829107c05a459be2f80e1f3d93192ad047263f48378279ae5a46be1b165a6c32e148ba334af4dfbba0fe942b5636ee272f7684d41741452512e8
+  languageName: node
+  linkType: hard
+
+"@clack/prompts@npm:^0.7.0":
+  version: 0.7.0
+  resolution: "@clack/prompts@npm:0.7.0"
+  dependencies:
+    "@clack/core": "npm:^0.3.3"
+    is-unicode-supported: "npm:*"
+    picocolors: "npm:^1.0.0"
+    sisteransi: "npm:^1.0.5"
+  checksum: fecb3b34308c5cb75807211b28d50caa4b0c5d150d16e733e59bfba3187ac856f050ed44baeca90eb99e047671096ff54402dd2790e9c0e77845a75b04003e2e
+  languageName: node
+  linkType: hard
+
 "@isaacs/cliui@npm:^8.0.2":
   version: 8.0.2
   resolution: "@isaacs/cliui@npm:8.0.2"
@@ -2077,6 +2099,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-unicode-supported@npm:*":
+  version: 2.0.0
+  resolution: "is-unicode-supported@npm:2.0.0"
+  checksum: 3013dfb8265fe9f9a0d1e9433fc4e766595631a8d85d60876c457b4bedc066768dab1477c553d02e2f626d88a4e019162706e04263c94d74994ef636a33b5f94
+  languageName: node
+  linkType: hard
+
 "is-unicode-supported@npm:^0.1.0":
   version: 0.1.0
   resolution: "is-unicode-supported@npm:0.1.0"
@@ -3168,6 +3197,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "portchain-port-vessel-analysis@workspace:."
   dependencies:
+    "@clack/prompts": "npm:^0.7.0"
     inquirer: "npm:^9.2.12"
     jest: "npm:^29.7.0"
   languageName: unknown

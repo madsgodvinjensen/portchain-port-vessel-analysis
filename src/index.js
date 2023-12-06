@@ -1,4 +1,11 @@
-import { cli, features } from "./cli.mjs";
+import {
+  cli,
+  features,
+  withSpinner,
+  print,
+  printTable,
+  paging,
+} from "./cli.mjs";
 import {
   portsMostCalled,
   portsLeastCalled,
@@ -12,21 +19,41 @@ import {
       default:
         process.exit(0);
         break;
-      case features.portsMostCalled:
-        const result = await portsMostCalled();
-        console.log(result);
-        console.log();
+      case features.portsMostCalled: {
+        const result = await withSpinner(() => portsMostCalled());
+        printTable(result);
         break;
-      case features.portsLeastCalled:
-        const result2 = await portsLeastCalled();
-        console.log(result2);
-        console.log();
+      }
+      case features.portsLeastCalled: {
+        const result = await withSpinner(() => portsLeastCalled());
+        printTable(result);
         break;
-      case features.portCallPercentiles:
-        const result3 = await portCallPercentiles();
-        console.log(result3);
-        console.log();
+      }
+      case features.portCallPercentiles: {
+        const result = await withSpinner(() => portCallPercentiles());
+        const sortedResult = result.sort((a, b) =>
+          a.name.localeCompare(b.name)
+        );
+
+        print(
+          "Ports with their port call duration percentiles (hours)\nSorted by port name"
+        );
+
+        await paging(sortedResult.length, (startIndex, endIndex) => {
+          printTable(
+            sortedResult.slice(startIndex, endIndex).map((port) => ({
+              Name: port.name,
+              "5th": port.percentiles[5],
+              "20th": port.percentiles[20],
+              "50th": port.percentiles[50],
+              "75th": port.percentiles[75],
+              "90th": port.percentiles[90],
+            }))
+          );
+        });
+
         break;
+      }
     }
   }
 })();
