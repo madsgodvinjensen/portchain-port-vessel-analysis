@@ -55,15 +55,23 @@ function findPercentile(sortedArray, percentile) {
   return sortedArray[index];
 }
 
+function roundToTwoDecimals(number) {
+  return Math.round(number * 100) / 100;
+}
+
+function calculateDuration(departure, arrival) {
+  return roundToTwoDecimals(
+    (new Date(departure) - new Date(arrival)) / (1000 * 60 * 60)
+  );
+}
+
 export const portCallPercentiles = withCache(async (schedules) => {
   const durationsGroupedByPort = groupByPortName(
     schedules.flatMap((x) => {
       return x.portCalls
         .filter((portCall) => !portCall.isOmitted)
         .map((portCall) => ({
-          durationMinutes:
-            (new Date(portCall.departure) - new Date(portCall.arrival)) /
-            (1000 * 60),
+          duration: calculateDuration(portCall.departure, portCall.arrival),
           port: portCall.port,
         }));
     })
@@ -71,11 +79,7 @@ export const portCallPercentiles = withCache(async (schedules) => {
 
   const percentilesPerPort = Object.entries(durationsGroupedByPort).map(
     ([portName, value]) => {
-      const sorted = value.map((x) => x.durationMinutes).sort((a, b) => a - b);
-
-      if (portName === "Hamburg") {
-        console.log(sorted);
-      }
+      const sorted = value.map((x) => x.duration).sort((a, b) => a - b);
 
       return {
         name: portName,
