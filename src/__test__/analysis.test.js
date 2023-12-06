@@ -111,11 +111,11 @@ describe("percentiles", () => {
     expect(result).toEqual([
       {
         percentiles: {
-          5: 246,
-          20: 366,
-          50: 858,
-          75: 1016,
-          90: 1128,
+          5: 4.1,
+          20: 6.1,
+          50: 14.3,
+          75: 16.93,
+          90: 18.8,
         },
         name: "Antwerpen",
       },
@@ -138,11 +138,11 @@ describe("percentiles", () => {
     expect(result).toEqual([
       {
         percentiles: {
-          5: 846,
-          20: 846,
-          50: 846,
-          75: 846,
-          90: 846,
+          5: 14.1,
+          20: 14.1,
+          50: 14.1,
+          75: 14.1,
+          90: 14.1,
         },
         name: "Tema",
       },
