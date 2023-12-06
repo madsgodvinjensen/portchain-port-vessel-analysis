@@ -43,6 +43,43 @@ describe("ports most called", () => {
       },
     ]);
   });
+
+  test("works with limited data", async () => {
+    jest.unstable_mockModule("../dataStore.mjs", () => ({
+      getVessels: jest.fn(() => []),
+      getSchedules: jest.fn(() => [
+        {
+          vessels: [AbidjanExpress],
+          portCalls: [portCalls[0]],
+        },
+      ]),
+    }));
+
+    const { portsMostCalled } = await import("../analysis.mjs");
+    const result = await portsMostCalled();
+    expect(result).toEqual([
+      {
+        name: "Antwerpen",
+        portCalls: 1,
+      },
+    ]);
+  });
+
+  test("doesn't crash with no data", async () => {
+    jest.unstable_mockModule("../dataStore.mjs", () => ({
+      getVessels: jest.fn(() => []),
+      getSchedules: jest.fn(() => [
+        {
+          vessels: [AbidjanExpress],
+          portCalls: [],
+        },
+      ]),
+    }));
+
+    const { portsMostCalled } = await import("../analysis.mjs");
+    const result = await portsMostCalled();
+    expect(result).toEqual([]);
+  });
 });
 
 describe("ports least called", () => {
@@ -86,6 +123,43 @@ describe("ports least called", () => {
         portCalls: 14,
       },
     ]);
+  });
+
+  test("works with limited data", async () => {
+    jest.unstable_mockModule("../dataStore.mjs", () => ({
+      getVessels: jest.fn(() => []),
+      getSchedules: jest.fn(() => [
+        {
+          vessels: [AbidjanExpress],
+          portCalls: [portCalls[0]],
+        },
+      ]),
+    }));
+
+    const { portsLeastCalled } = await import("../analysis.mjs");
+    const result = await portsLeastCalled();
+    expect(result).toEqual([
+      {
+        name: "Antwerpen",
+        portCalls: 1,
+      },
+    ]);
+  });
+
+  test("doesn't crash with no data", async () => {
+    jest.unstable_mockModule("../dataStore.mjs", () => ({
+      getVessels: jest.fn(() => []),
+      getSchedules: jest.fn(() => [
+        {
+          vessels: [AbidjanExpress],
+          portCalls: [],
+        },
+      ]),
+    }));
+
+    const { portsLeastCalled } = await import("../analysis.mjs");
+    const result = await portsLeastCalled();
+    expect(result).toEqual([]);
   });
 });
 
@@ -147,5 +221,21 @@ describe("percentiles", () => {
         name: "Tema",
       },
     ]);
+  });
+
+  test("doesn't crash with no data", async () => {
+    jest.unstable_mockModule("../dataStore.mjs", () => ({
+      getVessels: jest.fn(() => []),
+      getSchedules: jest.fn(() => [
+        {
+          vessels: [],
+          portCalls: [],
+        },
+      ]),
+    }));
+
+    const { portCallPercentiles } = await import("../analysis.mjs");
+    const result = await portCallPercentiles();
+    expect(result).toEqual([]);
   });
 });
