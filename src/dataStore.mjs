@@ -27,7 +27,7 @@ async function getJSON(url) {
       .on("error", (error) => {
         reject({
           statusCode,
-          error,
+          ...error,
         });
       });
   });

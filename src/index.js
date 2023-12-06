@@ -21,16 +21,26 @@ import {
         break;
       case features.portsMostCalled: {
         const result = await withSpinner(() => portsMostCalled());
-        printTable(result);
+        if (result) {
+          printTable(result);
+        }
+
         break;
       }
       case features.portsLeastCalled: {
         const result = await withSpinner(() => portsLeastCalled());
-        printTable(result);
+        if (result) {
+          printTable(result);
+        }
+
         break;
       }
       case features.portCallPercentiles: {
         const result = await withSpinner(() => portCallPercentiles());
+        if (!result) {
+          break;
+        }
+
         const sortedResult = result.sort((a, b) =>
           a.name.localeCompare(b.name)
         );

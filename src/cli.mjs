@@ -1,4 +1,4 @@
-import { intro, note, select, spinner, confirm } from "@clack/prompts";
+import { intro, note, select, spinner, confirm, log } from "@clack/prompts";
 import inquirer from "inquirer";
 
 export const features = {
@@ -36,7 +36,7 @@ export async function* cli() {
 }
 
 export function print(string) {
-  console.log(string);
+  log.message(string);
 }
 
 export function printTable(array) {
@@ -47,9 +47,16 @@ export async function withSpinner(fn) {
   const s = spinner();
 
   s.start("Fetching data");
-  const r = await fn();
-  s.stop("Data fetched");
-  return r;
+  try {
+    const r = await fn();
+    s.stop("Data fetched");
+    return r;
+  } catch (error) {
+    s.stop(
+      "Fetching data failed. Check the network and that the APIs are up.",
+      2
+    );
+  }
 }
 
 export async function paging(numberOfItems, callbackFn) {
