@@ -66,6 +66,12 @@ export async function paging(numberOfItems, callbackFn) {
     const currentIndex = page * pageSize;
     callbackFn(currentIndex, currentIndex + pageSize);
 
+    page += 1;
+
+    if (page * pageSize > numberOfItems) {
+      break;
+    }
+
     const shouldContinue = await confirm({
       message: "Show next page?",
     });
@@ -73,7 +79,5 @@ export async function paging(numberOfItems, callbackFn) {
     if (!shouldContinue) {
       break;
     }
-
-    page += 1;
   }
 }
